@@ -87,7 +87,7 @@ subdirs:
 install: installlocalheaders @installucdheaders@ \
          installlibs \
          installlocalbin      installlocalsbin   \
-         installsubdirs      $(OTHERINSTALL)
+         installsubdirs
 
 uninstall: uninstalllibs uninstallbin uninstallsbin uninstallheaders \
            uninstallsubdirs $(OTHERUNINSTALL)
@@ -107,6 +107,8 @@ installprogs: installbin installsbin
 installheaders: installlocalheaders @installucdheaders@ installsubdirheaders
 
 installlocalheaders:
+
+installlocalheaders-remove:
 	@if test "$(INSTALLBUILTINCLUDEHEADERS)" != "" ; then \
 		echo creating directory $(INSTALL_PREFIX)$(includedir) ; \
 		it="$(INSTALLBUILTINCLUDEHEADERS)" ; \
@@ -175,6 +177,8 @@ installucdheaders:
 	fi
 
 installsubdirheaders:
+
+installsubdirheaders-remove:
 	@if test "$(SUBDIRS)" != ""; then \
 		it="$(SUBDIRS)" ; \
 		for i in $$it ; do \

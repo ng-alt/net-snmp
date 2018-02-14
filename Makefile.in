@@ -287,6 +287,7 @@ configclean: makefileclean
 		agent/mibgroup/mib_module_dot_conf.h
 	rm -rf mk
 	rm -f *.core
+	rm -f stamp-h1
 
 #
 # Configure script related targets
